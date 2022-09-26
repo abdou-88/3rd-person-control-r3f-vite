@@ -16,19 +16,19 @@ const App = () => {
   
   return (
     <div className="container" tabIndex={0}>
-      <Canvas camera={{ fov: 20, position: [-10, 10,-80] }} shadows>
+      <Canvas camera={{ fov: 20, position: [0, 2, -20] }} shadows>
         <OrbitControls />
 
-        <directionalLight
-          intensity={1.3}
-          position={[10, 10, 0]}
-          castShadow
-          shadow-mapSize-height={512}
-          shadow-mapSize-width={512}
-        />
         <Suspense fallback={null}>
           <Physics>
-            <Abi position={[0, -2, -40]} />
+            <directionalLight
+              intensity={1.3}
+              position={[0, 10, 0]}
+              castShadow
+              shadow-mapSize-height={512}
+              shadow-mapSize-width={512}
+            />
+            <Abi position={[0, -2, 0]} />
             <Floor />
           </Physics>
           <Environment background={true} files="Beach.hdr" path={"/"} />
