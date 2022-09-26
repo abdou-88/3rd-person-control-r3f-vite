@@ -16,7 +16,7 @@ const App = () => {
   
   return (
     <div className="container" tabIndex={0}>
-      <Canvas camera={{ fov: 35, position: [-10, 10, 10] }} shadows>
+      <Canvas camera={{ fov: 20, position: [-10, 10,-80] }} shadows>
         <OrbitControls />
 
         <directionalLight
@@ -28,7 +28,7 @@ const App = () => {
         />
         <Suspense fallback={null}>
           <Physics>
-            <Abi position={[0, -2, 0]} />
+            <Abi position={[0, -2, -40]} />
             <Floor />
           </Physics>
           <Environment background={true} files="Beach.hdr" path={"/"} />
