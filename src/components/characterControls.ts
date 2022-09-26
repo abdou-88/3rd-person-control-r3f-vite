@@ -26,9 +26,12 @@ export class CharacterControls {
     runVelocity = 5
     walkVelocity = 2
 
-    constructor(model: THREE.Group,
-        mixer: THREE.AnimationMixer, animationsMap: Map<string, THREE.AnimationAction>,
-        orbitControl: OrbitControls, camera: THREE.Camera,
+    constructor(
+        model: THREE.Group,
+        mixer: THREE.AnimationMixer, 
+        animationsMap: Map<string, THREE.AnimationAction>,
+        orbitControl: OrbitControls, 
+        camera: THREE.Camera,
         currentAction: string) {
         this.model = model
         this.mixer = mixer
