@@ -1,39 +1,64 @@
 import "./App.css";
-import MultiKeyControler from "./components/MultiKeyControler";
-import { Abi } from "./components/Abi";
+
+import Abi from "./components/Abi";
 import Floor from "./components/Floor";
-import {Suspense} from 'react';
-import { Environment} from "@react-three/drei";
+import { Suspense, useState } from "react";
+import { Loader, Environment } from "@react-three/drei";
+import * as THREE from "three";
 
 // react three fiber imports
 import { Canvas } from "@react-three/fiber";
 
-import {OrbitControls} from '@react-three/drei';
+import { OrbitControls } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
+import Header from "./components/landing/HeaderPlane";
+import { Cylinder } from "./components/landing/ProfilPicCylender";
 
 const App = () => {
+  const fov = 40;
+  const aspect = 1920 / 1080;
+  const near = 0.5;
+  const far = 1000.0;
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(0, 5, 15);
+
+  const light:any = new THREE.DirectionalLight(0xffffff, 1.0);
  
-  
+    light.position.set(0, 10, 0);
+    light.target.position.set(0, 0, 0);
+    light.castShadow = true;
+    light.shadow.bias = -0.001;
+    light.shadow.mapSize.width = 4096;
+    light.shadow.mapSize.height = 4096;
+    light.shadow.camera.near = 0.1;
+    light.shadow.camera.far = 500.0;
+    light.shadow.camera.near = 0.5;
+    light.shadow.camera.far = 500.0;
+    light.shadow.camera.left = 50;
+    light.shadow.camera.right = -50;
+    light.shadow.camera.top = 50;
+    light.shadow.camera.bottom = -50;
+
   return (
     <div className="container" tabIndex={0}>
-      <Canvas camera={{ fov: 20, position: [0, 2, -20] }} shadows>
+      <Canvas camera={camera} shadows>
         <OrbitControls />
 
         <Suspense fallback={null}>
           <Physics>
-            <directionalLight
-              intensity={1.3}
-              position={[0, 10, 0]}
-              castShadow
-              shadow-mapSize-height={512}
-              shadow-mapSize-width={512}
-            />
-            <Abi position={[0, -2, 0]} />
+            <directionalLight {...light} />
+            <Abi camera={camera}  />
             <Floor />
+            <Header />
+            <Cylinder />
+            <Environment background={true} files="Beach.hdr" path={"/"} />
           </Physics>
-          <Environment background={true} files="Beach.hdr" path={"/"} />
         </Suspense>
       </Canvas>
+      <Loader
+        dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`}
+        initialState={(active) => active}
+      />
     </div>
   );
 };
