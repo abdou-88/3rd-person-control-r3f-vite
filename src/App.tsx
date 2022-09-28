@@ -47,7 +47,7 @@ const App = () => {
         <Suspense fallback={null}>
           <Physics>
             <directionalLight {...light} />
-            <Abi camera={camera}  />
+            <Abi camera={camera} />
             <Floor />
             <Header />
             <Cylinder />

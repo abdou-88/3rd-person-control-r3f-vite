@@ -53,7 +53,6 @@ interface GLTFAction extends THREE.AnimationClip {
 
 interface CharacterProps {
   camera: THREE.PerspectiveCamera;
-  directionalLight: THREE.DirectionalLight;
 }
 const Abi: React.FC<CharacterProps> = ({ camera }) => {
   const [action, setAction] = useState<string>("Walk");
@@ -80,7 +79,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
   const currentPosition = new THREE.Vector3();
   const currentLookAt = new THREE.Vector3();
   const decceleration = new THREE.Vector3(-0.0005, -0.0001, -5.0);
-  const acceleration = new THREE.Vector3(1, 0.125, 50.0);
+  const acceleration = new THREE.Vector3(0, 0.125, 40.0);
   const velocity = new THREE.Vector3(0, 0, 0);
 
   const { nodes, materials, animations } = useGLTF(
@@ -107,6 +106,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     document.addEventListener("keyup", handleKeyUp, false);
   });
 
+  ////////
   const calculateIdealOffset = () => {
     const idealOffset = new THREE.Vector3(0, 5, -15);
     idealOffset.applyQuaternion(AbiCharacter.current.quaternion);
@@ -114,13 +114,14 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     return idealOffset;
   };
 
+  ///////////////////
   const calculateIdealLookat = () => {
     const idealLookat = new THREE.Vector3(0, 5, 15);
     idealLookat.applyQuaternion(AbiCharacter.current.quaternion);
     idealLookat.add(AbiCharacter.current.position);
     return idealLookat;
   };
-
+  //////////////////
   function updateCameraTarget(delta: number) {
     const idealOffset = calculateIdealOffset();
     const idealLookat = calculateIdealLookat();
@@ -132,6 +133,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
 
     camera.position.copy(currentPosition);
   }
+
   // movement
   const characterState = (delta: number) => {
     const newVelocity = velocity;
@@ -202,7 +204,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     switch (event.keyCode) {
       case 38: //up
         activeAnimation.forward = true;
-
+      
         break;
 
       case 37: //left
@@ -234,6 +236,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     switch (event.keyCode) {
       case 38: //Up
         activeAnimation.forward = false;
+        
         break;
 
       case 37: //left
