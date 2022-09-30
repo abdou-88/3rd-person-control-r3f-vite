@@ -1,7 +1,7 @@
 import "./App.css";
 
 import Abi from "./components/Abi";
-import Floor from "./components/Floor";
+import CVPaper from "./components/CVPaper";
 import { Suspense, useState } from "react";
 import { Loader, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -13,15 +13,15 @@ import { OrbitControls } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 import Header from "./components/landing/HeaderPlane";
 import { Cylinder } from "./components/landing/ProfilPicCylender";
+import Quad from "./Quad";
 
 const App = () => {
-  const fov = 40;
+  const fov = 60;
   const aspect = 1920 / 1080;
   const near = 0.5;
   const far = 1000.0;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(0, 5, 15);
-
+ 
   const light:any = new THREE.DirectionalLight(0xffffff, 1.0);
  
     light.position.set(0, 10, 0);
@@ -48,9 +48,10 @@ const App = () => {
           <Physics>
             <directionalLight {...light} />
             <Abi camera={camera} />
-            <Floor />
+            <CVPaper />
             <Header />
             <Cylinder />
+            <Quad/>
             <Environment background={true} files="Beach.hdr" path={"/"} />
           </Physics>
         </Suspense>

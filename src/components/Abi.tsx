@@ -53,8 +53,10 @@ interface GLTFAction extends THREE.AnimationClip {
 
 interface CharacterProps {
   camera: THREE.PerspectiveCamera;
+
 }
 const Abi: React.FC<CharacterProps> = ({ camera }) => {
+
   const [action, setAction] = useState<string>("Walk");
   let previousAction: string | undefined = usePrevious(action);
 
@@ -108,7 +110,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
 
   ////////
   const calculateIdealOffset = () => {
-    const idealOffset = new THREE.Vector3(0, 5, -15);
+    const idealOffset = new THREE.Vector3(0, 10, -15);
     idealOffset.applyQuaternion(AbiCharacter.current.quaternion);
     idealOffset.add(AbiCharacter.current.position);
     return idealOffset;
@@ -157,7 +159,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
 
     const acc = acceleration.clone();
     if (activeAnimation.run) {
-      acc.multiplyScalar(2.0);
+      acc.multiplyScalar(1.5);
     }
 
     if (activeAnimation.forward) {
@@ -265,7 +267,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     state.camera.updateProjectionMatrix();
   });
   return (
-    <group ref={AbiCharacter} position={[0, -2, 0]} dispose={null}>
+    <group ref={AbiCharacter} scale= {4} position={[0, -2, 0]} dispose={null}>
       <group name="Scene">
         <group name="Armature">
           <primitive object={nodes.Hips} />

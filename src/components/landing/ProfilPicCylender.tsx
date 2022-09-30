@@ -1,7 +1,7 @@
 import { useCylinder } from '@react-three/cannon'
 
 export  function Cylinder() {
-  const [ref, api] :any = useCylinder(() => ({ mass: 1, position: [-10, 15, -40] }))
+  const [ref, api] :any = useCylinder(() => ({ mass: 1, position: [-10, 15, -80] }))
   // useFrame(() => (myref.current.rotation.x = myref.current.rotation.y += 0.01))
 
   return (

@@ -3,7 +3,7 @@ import React, { useLayoutEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { usePlane } from "@react-three/cannon";
 
-const Floor: React.FC = () => {
+const CVPaper: React.FC = () => {
   // const simplex = useMemo(() => new SimplexNoise(), []);
 const [ref]:any = usePlane(() => ({
   position: [0, -2, 0],
@@ -21,7 +21,7 @@ const [ref]:any = usePlane(() => ({
     <mesh ref={ref} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
       <planeBufferGeometry
         attach="geometry"
-        args={[50, 100]}
+        args={[100, 200]}
         ref={terrain}
         receiveShadow
       />
@@ -31,4 +31,4 @@ const [ref]:any = usePlane(() => ({
   );
 };
 
-export default Floor;
+export default CVPaper;
