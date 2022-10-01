@@ -24,7 +24,7 @@ const App = () => {
  
   const light:any = new THREE.DirectionalLight(0xffffff, 1.0);
  
-    light.position.set(0, 10, 0);
+    light.position.set(0, 100, 0);
     light.target.position.set(0, 0, 0);
     light.castShadow = true;
     light.shadow.bias = -0.001;
