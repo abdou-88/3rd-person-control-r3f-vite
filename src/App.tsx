@@ -11,9 +11,11 @@ import { Canvas } from "@react-three/fiber";
 
 import { OrbitControls } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
-import Header from "./components/landing/HeaderPlane";
-import { Cylinder } from "./components/landing/ProfilPicCylender";
-import Quad from "./Quad";
+import Header from "./components/Areas/landing/HeaderPlane";
+import { Cylinder } from "./components/Areas/landing/ProfilPicCylender";
+import Tiles from "./components/Tiles";
+import Crane from "./components/Areas/skills/Crane";
+import { InfoTable, QuadTable } from "./components/InfoTable";
 
 const App = () => {
   const fov = 60;
@@ -46,12 +48,15 @@ const App = () => {
 
         <Suspense fallback={null}>
           <Physics>
+            <InfoTable />
+            <QuadTable/>
             <directionalLight {...light} />
             <Abi camera={camera} />
             <CVPaper />
             <Header />
             <Cylinder />
-            <Quad/>
+            <Tiles />
+            <Crane />
             <Environment background={true} files="Beach.hdr" path={"/"} />
           </Physics>
         </Suspense>

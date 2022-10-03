@@ -53,10 +53,8 @@ interface GLTFAction extends THREE.AnimationClip {
 
 interface CharacterProps {
   camera: THREE.PerspectiveCamera;
-
 }
 const Abi: React.FC<CharacterProps> = ({ camera }) => {
-
   const [action, setAction] = useState<string>("Walk");
   let previousAction: string | undefined = usePrevious(action);
 
@@ -78,6 +76,26 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     dance: false,
   };
 
+  const activeArea: {
+    skills: boolean;
+    aboutMe: boolean;
+    projects: boolean;
+    education: boolean;
+    contact: boolean;
+    experience: boolean;
+    quadArea: boolean;
+    stepsArea: boolean;
+  } = {
+    skills: false,
+    aboutMe: false,
+    projects: false,
+    education: false,
+    contact: false,
+    experience: false,
+    quadArea: false,
+    stepsArea: false,
+  };
+
   const currentPosition = new THREE.Vector3();
   const currentLookAt = new THREE.Vector3();
   const decceleration = new THREE.Vector3(-0.0005, -0.0001, -5.0);
@@ -91,15 +109,22 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
 
   const { actions }: any = useAnimations(animations, AbiCharacter);
 
-  // fading  betwn actions
+  //fading  betwn actions
   useEffect(() => {
     if (previousAction) {
       actions[previousAction].fadeOut(0.2);
-      actions[action].stop();
+      actions[previousAction].stop();
     }
     actions[action].play();
     actions[action].fadeIn(0.2);
   }, [actions, action, previousAction]);
+
+  //  useEffect(() => {
+  //    if (AbiCharacter.current.position.x >= 5) {
+  //      console.log("in");
+  //      actions["StepUp"].play();
+  //    }
+  //  }, [currentPosition]);
 
   // keyboard controls
   useEffect(() => {
@@ -178,7 +203,12 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
       _Q.setFromAxisAngle(_A, 4.0 * -Math.PI * delta * acceleration.y);
       _R.multiply(_Q);
     }
-
+    if (activeArea.quadArea) {
+      console.log("you are in the quad area");
+    }
+     if (activeArea.skills) {
+       console.log("you are in the skills area");
+     }
     controlObject.quaternion.copy(_R);
 
     const oldPosition = new THREE.Vector3(0, 0, 0);
@@ -206,7 +236,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     switch (event.keyCode) {
       case 38: //up
         activeAnimation.forward = true;
-      
+
         break;
 
       case 37: //left
@@ -238,7 +268,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     switch (event.keyCode) {
       case 38: //Up
         activeAnimation.forward = false;
-        
+
         break;
 
       case 37: //left
@@ -259,15 +289,29 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
     }
   }, []);
 
+  const detectAreasPosition = (x: number, z: number) => {
+    if (x >= 50 || x<= -50 || z >= 100){
+       console.log("in");
+    }else {
+       console.log("out");
+    }
+       
+  };
   useFrame((state, delta) => {
     characterState(delta);
     const idealLookat = calculateIdealLookat();
+    //console.log(state);
+    // detectAreasPosition(
+    //   AbiCharacter.current.position.x,
+    //   AbiCharacter.current.position.z
+    // );
 
     state.camera.lookAt(idealLookat);
     state.camera.updateProjectionMatrix();
   });
+
   return (
-    <group ref={AbiCharacter} scale= {4} position={[0, -2, 0]} dispose={null}>
+    <group ref={AbiCharacter} scale={4} position={[0, -2, 0]} dispose={null}>
       <group name="Scene">
         <group name="Armature">
           <primitive object={nodes.Hips} />

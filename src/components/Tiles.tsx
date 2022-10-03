@@ -3,7 +3,7 @@ import React from "react";
 
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
-const Quad: React.FC = () => {
+const Tiles: React.FC = () => {
   const [t1] = useLoader(FBXLoader, ["T1.FBX"]);
   const [t2] = useLoader(FBXLoader, ["T2.FBX"]);
   const [t3] = useLoader(FBXLoader, ["T3.FBX"]);
@@ -133,4 +133,4 @@ const Quad: React.FC = () => {
   );
 };
 
-export default Quad;
+export default Tiles;
