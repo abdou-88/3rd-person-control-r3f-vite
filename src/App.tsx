@@ -17,6 +17,7 @@ import Tiles from "./components/Tiles";
 import Crane from "./components/Areas/skills/Crane";
 import { InfoTable, QuadTable } from "./components/InfoTable";
 import {Area} from "./components/AreaBorder";
+import Lamps from "./components/Lamps";
 
 const App = () => {
   const fov = 60;
@@ -50,14 +51,15 @@ const App = () => {
         <Suspense fallback={null}>
           <Physics>
             <InfoTable />
-            <QuadTable/>
+            <QuadTable />
             <directionalLight {...light} />
             <Abi camera={camera} />
             <CVPaper />
             <Header />
-            <Area/>
+            <Area />
             <Cylinder />
             <Tiles />
+            <Lamps />
             <Crane />
             <Environment background={true} files="Beach.hdr" path={"/"} />
           </Physics>
