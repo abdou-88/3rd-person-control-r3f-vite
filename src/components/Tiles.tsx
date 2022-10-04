@@ -129,6 +129,100 @@ const Tiles: React.FC = () => {
         rotation={[4.71, 0, 0]}
         object={t4.clone()}
       />
+      {/* ///right tiles/// */}
+      <primitive
+        position={[5, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t1.clone()}
+      />
+      <primitive
+        position={[10, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t1.clone()}
+      />
+      <primitive
+        position={[15, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t3.clone()}
+      />
+      <primitive
+        position={[20, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t4.clone()}
+      />
+      <primitive
+        position={[25, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t3.clone()}
+      />
+      <primitive
+        position={[30, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t2.clone()}
+      />
+      {/* ///left tiles/// */}
+      <primitive
+        position={[-5, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t1.clone()}
+      />
+      <primitive
+        position={[-10, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t1.clone()}
+      />
+      <primitive
+        position={[-15, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t3.clone()}
+      />
+      <primitive
+        position={[-20, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t4.clone()}
+      />
+      <primitive
+        position={[-25, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t3.clone()}
+      />
+      <primitive
+        position={[-30, -1.85, -5]}
+        rotation={[4.71, 0, 0]}
+        object={t2.clone()}
+      />
+
+      {/* ///up tiles/// */}
+      <primitive
+        position={[0, -1.85, -35]}
+        rotation={[4.71, 0, 0.1]}
+        object={t1.clone()}
+      />
+      <primitive
+        position={[0, -1.85, -30]}
+        rotation={[4.71, 0, 0.1]}
+        object={t1.clone()}
+      />
+      <primitive
+        position={[0, -1.85, -25]}
+        rotation={[4.71, 0, 0]}
+        object={t1.clone()}
+      ></primitive>
+      <primitive
+        position={[0, -1.85, -20]}
+        rotation={[4.71, 0, 0]}
+        object={t3.clone()}
+      />
+      <primitive
+        position={[0, -1.85, -15]}
+        rotation={[4.71, 0, 0]}
+        object={t2.clone()}
+      />
+      <primitive
+        position={[0, -1.85, -10]}
+        rotation={[4.71, 0, 0]}
+        object={t3.clone()}
+      />
     </group>
   );
 };

@@ -16,6 +16,7 @@ import { Cylinder } from "./components/Areas/landing/ProfilPicCylender";
 import Tiles from "./components/Tiles";
 import Crane from "./components/Areas/skills/Crane";
 import { InfoTable, QuadTable } from "./components/InfoTable";
+import {Area} from "./components/AreaBorder";
 
 const App = () => {
   const fov = 60;
@@ -54,6 +55,7 @@ const App = () => {
             <Abi camera={camera} />
             <CVPaper />
             <Header />
+            <Area/>
             <Cylinder />
             <Tiles />
             <Crane />
