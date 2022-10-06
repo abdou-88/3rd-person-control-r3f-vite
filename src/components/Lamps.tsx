@@ -59,3 +59,4 @@ const Lamps: React.FC = () => {
 };
 
 export default Lamps;
+

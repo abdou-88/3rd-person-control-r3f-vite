@@ -3,9 +3,9 @@ import "./App.css";
 import Abi from "./components/Abi";
 import CVPaper from "./components/CVPaper";
 import { Suspense, useState } from "react";
-import { Loader, Environment } from "@react-three/drei";
+import { Environment} from "@react-three/drei";
 import * as THREE from "three";
-
+import { CustomLoader } from "./components/Loader";
 // react three fiber imports
 import { Canvas } from "@react-three/fiber";
 
@@ -43,12 +43,13 @@ const App = () => {
     light.shadow.camera.top = 50;
     light.shadow.camera.bottom = -50;
 
+   
   return (
     <div className="container" tabIndex={0}>
       <Canvas camera={camera} shadows>
         <OrbitControls />
 
-        <Suspense fallback={null}>
+        <Suspense fallback={<CustomLoader />}>
           <Physics>
             <InfoTable />
             <QuadTable />
@@ -65,10 +66,6 @@ const App = () => {
           </Physics>
         </Suspense>
       </Canvas>
-      <Loader
-        dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`}
-        initialState={(active) => active}
-      />
     </div>
   );
 };
