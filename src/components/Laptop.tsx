@@ -10,7 +10,7 @@ const Laptop: React.FC = () => {
   return (
     <group>
       <primitive
-        position={[-300, -5, -50]}
+        position={[-300, -2, -50]}
         rotation = {[0,-0.5,0]}
         scale={7}
         object={gltf.scene}
