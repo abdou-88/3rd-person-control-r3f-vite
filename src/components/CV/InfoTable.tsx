@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 
 import {  useLoader } from '@react-three/fiber'
-import img from "../assets/textures/CharacterInfo.png";
-import quadInfo from "../assets/textures/QuadInfo.png";
+import img from "../../assets/textures/CharacterInfo.png";
+import quadInfo from "../../assets/textures/QuadInfo.png";
 
 
 export  function InfoTable() {

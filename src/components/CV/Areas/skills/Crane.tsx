@@ -1,7 +1,7 @@
 import {  useLoader } from "@react-three/fiber";
 import * as THREE from "three";
 import React, { Suspense } from "react";
-import img from "../../../assets/textures/CharacterInfo.png";
+import img from "../../../../assets/textures/CharacterInfo.png";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Crane: React.FC = () => {

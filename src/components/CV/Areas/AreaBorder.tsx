@@ -3,7 +3,7 @@
 import * as THREE from "three";
 
 import { useLoader } from "@react-three/fiber";
-import border from "../assets/textures/AreaBorders.png";
+import border from "../../../assets/textures/AreaBorders.png";
 
 export function Area() {
   const texture = useLoader(THREE.TextureLoader, border);

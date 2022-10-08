@@ -1,7 +1,7 @@
 import "./App.css";
 
 import Abi from "./components/Abi";
-import CVPaper from "./components/CVPaper";
+import CVPaper from "./components/CV/CVPaper";
 import { Suspense, useState } from "react";
 import { Environment} from "@react-three/drei";
 import * as THREE from "three";
@@ -11,13 +11,18 @@ import { Canvas } from "@react-three/fiber";
 
 import { OrbitControls } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
-import Header from "./components/Areas/landing/HeaderPlane";
-import { Cylinder } from "./components/Areas/landing/ProfilPicCylender";
-import Tiles from "./components/Tiles";
-import Crane from "./components/Areas/skills/Crane";
-import { InfoTable, QuadTable } from "./components/InfoTable";
-import {Area} from "./components/AreaBorder";
-import Lamps from "./components/Lamps";
+import Header from "./components/CV/Areas/landing/HeaderPlane";
+import { Cylinder } from "./components/CV/Areas/landing/ProfilPicCylender";
+import Tiles from "./components/CV/Tiles";
+import Crane from "./components/CV/Areas/skills/Crane";
+import { InfoTable, QuadTable } from "./components/CV/InfoTable";
+import {Area} from "./components/CV/Areas/AreaBorder";
+import Lamps from "./components/CV/Lamps";
+import Tesla from "./components/CV/Tesla";
+import Laptop from "./components/Laptop";
+import Monitors from "./components/Desk";
+import PostalBox from "./components/CV/Areas/Contact/PostalBox";
+import MousePad from "./components/MousePad";
 
 const App = () => {
   const fov = 60;
@@ -61,7 +66,12 @@ const App = () => {
             <Cylinder />
             <Tiles />
             <Lamps />
+            <PostalBox />
             <Crane />
+            <Tesla />
+            <Laptop />
+            <MousePad />
+            <Monitors />
             <Environment background={true} files="Beach.hdr" path={"/"} />
           </Physics>
         </Suspense>
