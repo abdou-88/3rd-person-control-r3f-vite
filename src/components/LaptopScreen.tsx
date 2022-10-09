@@ -11,7 +11,7 @@ export default function LScreen() {
   return (
     <>
       <mesh rotation = {[0,-0.50,0]} position={[-270, 73, -118.5]}>
-        <planeBufferGeometry attach="geometry" args={[200, 120]} />
+        <planeBufferGeometry attach="geometry" args={[210, 120]} />
         <meshBasicMaterial
           transparent={true}
           side={THREE.DoubleSide}
