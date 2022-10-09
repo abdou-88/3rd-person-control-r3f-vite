@@ -4,10 +4,10 @@ import React from "react";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
 const Tiles: React.FC = () => {
-  const [t1] = useLoader(FBXLoader, ["T1.FBX"]);
-  const [t2] = useLoader(FBXLoader, ["T2.FBX"]);
-  const [t3] = useLoader(FBXLoader, ["T3.FBX"]);
-  const [t4] = useLoader(FBXLoader, ["T4.FBX"]);
+  const [t1] = useLoader(FBXLoader, ["/Tiles/T1.FBX"]);
+  const [t2] = useLoader(FBXLoader, ["/Tiles/T2.FBX"]);
+  const [t3] = useLoader(FBXLoader, ["/Tiles/T3.FBX"]);
+  const [t4] = useLoader(FBXLoader, ["/Tiles/T4.FBX"]);
 
   t1.scale.setScalar(0.05);
   t1.traverse((o) => {
