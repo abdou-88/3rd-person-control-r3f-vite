@@ -24,7 +24,7 @@ const MousePad: React.FC = () => {
     <mesh ref={ref} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
       <planeBufferGeometry
         attach="geometry"
-        args={[500, 200]}
+        args={[470, 280]}
         ref={terrain}
         transparent
         receiveShadow

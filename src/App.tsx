@@ -23,7 +23,7 @@ import Laptop from "./components/Laptop";
 import Monitors from "./components/Monitors";
 import PostalBox from "./components/CV/Areas/Contact/PostalBox";
 import MousePad from "./components/MousePad";
-import LScreen from "./components/LaptopScreen";
+
 
 const App = () => {
   const fov = 60;
@@ -70,8 +70,7 @@ const App = () => {
             <PostalBox />
             <Crane />
             <Tesla />
-            <Laptop />
-            <LScreen/>
+            <Laptop />            
             <MousePad />
             <Monitors />
             <Environment background={true} files="Beach.hdr" path={"/"} />
