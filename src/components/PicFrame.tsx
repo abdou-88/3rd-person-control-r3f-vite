@@ -27,7 +27,7 @@ export default function PicFrame(props: JSX.IntrinsicElements["group"]) {
 
   return (
     <group {...props} dispose={null}>
-      <group scale={35} position={[-840, -2.7, -120]} rotation={[-Math.PI / 2, 0, 1.2]}>
+      <group scale={35} position={[-830, -2.7, -120]} rotation={[-Math.PI / 2, 0, 0.5]}>
         <mesh
           castShadow
           receiveShadow

@@ -14,7 +14,7 @@ const texture = useLoader(THREE.TextureLoader, img);
      <Suspense fallback={null}>
        <primitive
          
-         position={[-15, -2.6, 0]}
+         position={[-17, -2.6, 0]}
          scale={25}
          
          object={gltf.scene}

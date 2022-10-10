@@ -24,6 +24,8 @@ import Monitors from "./components/Monitors";
 import PostalBox from "./components/CV/Areas/Contact/PostalBox";
 import MousePad from "./components/MousePad";
 import PicFrame from "./components/PicFrame";
+import Desk from "./components/Desk";
+import Chair from "./components/Chair";
 
 
 const App = () => {
@@ -71,6 +73,8 @@ const App = () => {
             <PostalBox />
             <Crane />
             <Tesla />
+            <Desk/>
+            <Chair/>
             <Laptop />
             <PicFrame/>
             <MousePad />

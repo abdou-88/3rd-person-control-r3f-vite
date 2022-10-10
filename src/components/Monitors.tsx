@@ -14,7 +14,7 @@ const Monitors: React.FC = () => {
 
   return (
     <group>
-      <primitive position={[-7000, -20, -120]} scale={25} object={gltf.scene} />
+      <primitive position={[-7000, -17, -120]} scale={25} object={gltf.scene} />
       {/* ///// screens ////// */}
       <mesh rotation={[0, -0.07, 0]} position={[-500, 122, -165.5]}>
         <planeBufferGeometry attach="geometry" args={[230, 135]} />

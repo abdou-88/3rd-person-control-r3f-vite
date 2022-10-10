@@ -8,7 +8,7 @@ import { useLoader } from "@react-three/fiber";
 const MousePad: React.FC = () => {
   // const simplex = useMemo(() => new SimplexNoise(), []);
   const [ref]: any = usePlane(() => ({
-    position: [-320, -2, 20],
+    position: [-440, -2, 20],
     rotation: [-Math.PI / 2, 0, 0],
   }));
   const terrain = useRef<THREE.PlaneGeometry>(null!);
@@ -24,7 +24,7 @@ const MousePad: React.FC = () => {
     <mesh ref={ref} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
       <planeBufferGeometry
         attach="geometry"
-        args={[500, 280]}
+        args={[550, 280]}
         ref={terrain}
         transparent
         receiveShadow
