@@ -4,7 +4,7 @@ import { usePlane } from '@react-three/cannon'
 const Header: React.FC = () => {
   
    const [ref]:any = usePlane(() => ({
-     position: [0, -1.8, -100],
+     position: [0, 0, -100],
      rotation: [-Math.PI / 2, 0, 0],
      
    }));  

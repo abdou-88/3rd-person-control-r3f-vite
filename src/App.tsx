@@ -23,6 +23,7 @@ import Laptop from "./components/Laptop";
 import Monitors from "./components/Monitors";
 import PostalBox from "./components/CV/Areas/Contact/PostalBox";
 import MousePad from "./components/MousePad";
+import PicFrame from "./components/PicFrame";
 
 
 const App = () => {
@@ -38,8 +39,8 @@ const App = () => {
     light.target.position.set(0, 0, 0);
     light.castShadow = true;
     light.shadow.bias = -0.001;
-    light.shadow.mapSize.width = 4096;
-    light.shadow.mapSize.height = 4096;
+    light.shadow.mapSize.width = 8096;
+    light.shadow.mapSize.height = 8096;
     light.shadow.camera.near = 0.1;
     light.shadow.camera.far = 500.0;
     light.shadow.camera.near = 0.5;
@@ -62,15 +63,16 @@ const App = () => {
             <directionalLight {...light} />
             <Abi camera={camera} />
             <CVPaper />
+            <Tiles />
             <Header />
             <Area />
             <Cylinder />
-            <Tiles />
             <Lamps />
             <PostalBox />
             <Crane />
             <Tesla />
-            <Laptop />            
+            <Laptop />
+            <PicFrame/>
             <MousePad />
             <Monitors />
             <Environment background={true} files="Beach.hdr" path={"/"} />

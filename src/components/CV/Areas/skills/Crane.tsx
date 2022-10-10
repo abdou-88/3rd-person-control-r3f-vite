@@ -28,3 +28,4 @@ const texture = useLoader(THREE.TextureLoader, img);
 };
 
 export default Crane;
+

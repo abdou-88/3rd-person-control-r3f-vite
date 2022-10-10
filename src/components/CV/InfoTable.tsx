@@ -10,7 +10,7 @@ export  function InfoTable() {
   
   return (
     <>
-      <mesh position={[7, 6, 95]}>
+      <mesh position={[7, 6, 90]}>
         <planeBufferGeometry attach="geometry" args={[9.5, 12]} />
         <meshBasicMaterial
           transparent={true}
