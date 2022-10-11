@@ -18,7 +18,7 @@ type GLTFResult = GLTF & {
 };
 
 export default function Chair(props: JSX.IntrinsicElements["group"]) {
-    
+
   const { nodes, materials } = useGLTF("/desk_chair.glb") as GLTFResult;
   const texture = useLoader(THREE.TextureLoader, screen);
 
@@ -26,7 +26,7 @@ export default function Chair(props: JSX.IntrinsicElements["group"]) {
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[-500, -320, 350]} rotation={[0, 3, 0]} scale={30}>
+          <group position={[-500, -350, 350]} rotation={[0, 3, 0]} scale={30}>
             <mesh
               castShadow
               receiveShadow

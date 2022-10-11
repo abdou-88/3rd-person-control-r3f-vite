@@ -16,6 +16,8 @@ const Desk: React.FC = () => {
         rotation={[0, -0.5, 0]}
         scale={15}
         object={gltf.scene}
+        receiveShadow
+        castShadow
       />
       {/* <mesh rotation={[0, -0.5, 0]} position={[-265.5, 73, -116.2]}>
         <planeBufferGeometry attach="geometry" args={[210, 120]} />
