@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import React, { Suspense } from "react";
 import { useLoader } from "@react-three/fiber";
-import screen from "../assets/textures/laptopScreen.jpg";
+import screen from "../assets/textures/MonitorScreen2.jpg";
 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
@@ -12,12 +12,12 @@ const Laptop: React.FC = () => {
   return (
     <group>
       <primitive
-        position={[-300, -2.3, -50]}
+        position={[-300, -2.3, -120]}
         rotation={[0, -0.5, 0]}
         scale={7}
         object={gltf.scene}
       />
-      <mesh rotation={[0, -0.5, 0]} position={[-265.5, 73, -116.2]}>
+      <mesh rotation={[0, -0.5, 0]} position={[-265.5, 73, -186]}>
         <planeBufferGeometry attach="geometry" args={[210, 120]} />
         <meshBasicMaterial
           transparent={true}

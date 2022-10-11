@@ -1,36 +1,49 @@
+
+
 import * as THREE from "three";
-import React, { Suspense } from "react";
+
+import img from "../assets/textures/Wood3.jpeg";
+import { useGLTF } from "@react-three/drei";
+import { GLTF } from "three-stdlib";
 import { useLoader } from "@react-three/fiber";
-import screen from "../assets/textures/laptopScreen.jpg";
 
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+type GLTFResult = GLTF & {
+  nodes: {
+    Curve: THREE.Mesh;
+  };
+  materials: {
+    ["SVGMat.001"]: THREE.MeshStandardMaterial;
+  };
+};
 
-const Desk: React.FC = () => {
-  const gltf = useLoader(GLTFLoader, "/Desk.glb");
-  const texture = useLoader(THREE.TextureLoader, screen);
-
+export default function Desk(props: JSX.IntrinsicElements["group"]) {
+  const { nodes, materials } = useGLTF("/desk.glb") as GLTFResult;
+  const texture = useLoader(THREE.TextureLoader, img);
   return (
-    <group>
-      <primitive
-        position={[150, -972.6, -1000]}
-        rotation={[0, -0.5, 0]}
-        scale={15}
-        object={gltf.scene}
-        receiveShadow
+    <group
+      position={[-1000, -2.5, 480]}
+      scale={10000}
+      {...props}
+      dispose={null}
+    >
+      <mesh
         castShadow
-      />
-      {/* <mesh rotation={[0, -0.5, 0]} position={[-265.5, 73, -116.2]}>
-        <planeBufferGeometry attach="geometry" args={[210, 120]} />
+        receiveShadow
+        geometry={nodes.Curve.geometry}
+        material={materials["SVGMat.001"]}
+      >
         <meshBasicMaterial
           transparent={true}
           side={THREE.DoubleSide}
           attach="material"
           map={texture}
-          toneMapped={false}
+          
+          toneMapped={true}
+          
         />
-      </mesh> */}
+      </mesh>
     </group>
   );
-};
+}
 
-export default Desk;
+useGLTF.preload("/desk.glb");

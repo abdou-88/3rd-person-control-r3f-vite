@@ -30,10 +30,10 @@ import Typing from "./components/sittingChar";
 
 
 const App = () => {
-  const fov = 60;
+  const fov = 80;
   const aspect = 1920 / 1080;
   const near = 0.5;
-  const far = 1000.0;
+  const far = 10000.0;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
  
   const light:any = new THREE.DirectionalLight(0xffffff, 1.0);
@@ -75,7 +75,7 @@ const App = () => {
             <Crane />
             <Tesla />
             <Desk/>
-            {/* <Typing/> */}
+            <Typing/>
             <Chair/>
             <Laptop />
             <PicFrame/>

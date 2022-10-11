@@ -26,7 +26,7 @@ export default function Chair(props: JSX.IntrinsicElements["group"]) {
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
-          <group position={[-500, -350, 350]} rotation={[0, 3, 0]} scale={30}>
+          <group position={[-355, -250, 215]} rotation={[0, -2.4, 0]} scale={20}>
             <mesh
               castShadow
               receiveShadow
