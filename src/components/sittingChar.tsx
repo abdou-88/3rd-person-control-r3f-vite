@@ -57,9 +57,15 @@ export default function Typing(props: JSX.IntrinsicElements["group"]) {
     actions["Armature|mixamo.com|Layer0"].play();
   },[]);
   return (
-    <group  position = {[-400,-355, 309]} rotation= {[0,-2.5,0.05]} ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <group scale= {490} name="Armature">
+    <group
+      position={[-400, -355, 309]}
+      rotation={[0, -2.5, 0.05]}
+      ref={group}
+      {...props}
+      dispose={null}
+    >
+      <group scale={490}  name="Scene">
+        <group name="Armature">
           <primitive object={nodes.Hips} />
           <skinnedMesh
             name="EyeLeft"
