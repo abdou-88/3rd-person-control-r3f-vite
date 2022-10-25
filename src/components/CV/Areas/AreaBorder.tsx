@@ -4,6 +4,7 @@ import * as THREE from "three";
 
 import { useLoader } from "@react-three/fiber";
 import border from "../../../assets/textures/AreaBorders.png";
+import { SArea } from "./skills/SArea";
 
 export function Area() {
   const texture = useLoader(THREE.TextureLoader, border);
@@ -21,6 +22,7 @@ export function Area() {
           toneMapped={false}
         />
       </mesh>
+      <SArea/>
       <mesh rotation={[1.5708, 0, 0]} position={[-34, -1.99, -35]}>
         <planeBufferGeometry attach="geometry" args={[32, 35]} />
         <meshBasicMaterial

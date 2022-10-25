@@ -1,8 +1,61 @@
 import {  useLoader } from "@react-three/fiber";
 
-import React, { Suspense } from "react";
+import React from "react";
 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
+import * as THREE from "three";
+
+import { useGLTF } from "@react-three/drei";
+import { GLTF } from "three-stdlib";
+
+type GLTFResult = GLTF & {
+  nodes: {
+    Object_4: THREE.Mesh;
+    Object_6: THREE.Mesh;
+    Object_7: THREE.Mesh;
+  };
+  materials: {
+    ["Material.001"]: THREE.MeshStandardMaterial;
+    ["Material.002"]: THREE.MeshStandardMaterial;
+  };
+};
+
+export function Lamp(props: JSX.IntrinsicElements["group"]) {
+  const { nodes, materials } = useGLTF("/lamp.glb") as GLTFResult;
+  return (
+    <group scale={1.8}  {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Object_4.geometry}
+            material={materials["Material.001"]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Object_6.geometry}
+            material={materials["Material.001"]}
+          />
+
+          {/* lamps glass  */}
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Object_7.geometry}
+            material={materials["Material.002"]}
+          />
+        </group>
+      </group>
+    </group>
+  );
+}
+
+useGLTF.preload("/lamp.glb");
+
+
 
 const Lamps: React.FC = () => {
  
@@ -13,45 +66,15 @@ const Lamps: React.FC = () => {
    
    return (
      <group>
+       <Lamp position={[-10, -3, -40]} />
+       <Lamp position={[10, -3, -20]} />
+       <Lamp position={[-10, -3, 10]} />
+       <Lamp position={[10, -3, 30]} />
+       <Lamp position={[-10, -3, 50]} />
+       <Lamp position={[10, -3, 70]} />
+       <Lamp position={[-10, -3, 90]} />
+
       
-       <primitive
-         position={[-10, -2.1, -50]}
-         scale={0.27}
-         object={gltf.scene.clone()}
-       />
-       <primitive
-         rotation={[0, 3, 0]}
-         position={[10, -2.1, -20]}
-         scale={0.27}
-         object={gltf.scene.clone()}
-       />
-       <primitive
-         position={[-10, -2.1, 10]}
-         scale={0.27}
-         object={gltf.scene.clone()}
-       />
-       <primitive
-         rotation={[0, 3, 0]}
-         position={[10, -2.1, 30]}
-         scale={0.27}
-         object={gltf.scene.clone()}
-       />
-       <primitive
-         position={[-10, -2.1, 50]}
-         scale={0.27}
-         object={gltf.scene.clone()}
-       />
-       <primitive
-         rotation={[0, 3, 0]}
-         position={[10, -2.1, 70]}
-         scale={0.27}
-         object={gltf.scene.clone()}
-       />
-       <primitive
-         position={[-10, -2.1, 90]}
-         scale={0.27}
-         object={gltf.scene.clone()}
-       />
      </group>
    );
 

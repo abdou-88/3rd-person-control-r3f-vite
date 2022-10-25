@@ -135,7 +135,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
 
   ////////
   const calculateIdealOffset = () => {
-    const idealOffset = new THREE.Vector3(0, 10, -15);
+    const idealOffset = new THREE.Vector3(0, 25, -30);
     idealOffset.applyQuaternion(AbiCharacter.current.quaternion);
     idealOffset.add(AbiCharacter.current.position);
     return idealOffset;
@@ -311,7 +311,7 @@ const Abi: React.FC<CharacterProps> = ({ camera }) => {
   });
 
   return (
-    <group ref={AbiCharacter} scale={4} position={[0, -2, 0]} dispose={null}>
+    <group ref={AbiCharacter} scale={5} position={[0, -2, 0]} dispose={null}>
       <group name="Scene">
         <group name="Armature">
           <primitive object={nodes.Hips} />

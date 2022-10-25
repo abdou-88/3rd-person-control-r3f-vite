@@ -1,7 +1,11 @@
 import React, { useLayoutEffect, useMemo, useRef } from "react";
 // import SimplexNoise from "simplex-noise";
 import * as THREE from "three";
-import { usePlane } from "@react-three/cannon";
+import {  usePlane } from "@react-three/cannon";
+
+
+
+
 
 const CVPaper: React.FC = () => {
   // const simplex = useMemo(() => new SimplexNoise(), []);
