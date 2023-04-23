@@ -26,7 +26,7 @@ import MousePad from "./components/MousePad";
 import PicFrame from "./components/PicFrame";
 import Desk from "./components/Desk";
 import Chair from "./components/Chair";
-import Typing from "./components/sittingChar";
+//import Typing from "./components/sittingChar";
 import { HTMLIcon } from "./components/CV/Areas/skills/HTML";
 import { CSSIcon } from "./components/CV/Areas/skills/CSS";
 import { ReactIcon } from "./components/CV/Areas/skills/React";
