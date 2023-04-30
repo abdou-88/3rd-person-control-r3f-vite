@@ -31,7 +31,7 @@ import { HTMLIcon } from "./components/CV/Areas/skills/HTML";
 import { CSSIcon } from "./components/CV/Areas/skills/CSS";
 import { ReactIcon } from "./components/CV/Areas/skills/React";
 import { TSIcon } from "./components/CV/Areas/skills/TS";
-import Playground from "./components/CV/playground";
+//import Playground from "./components/CV/playground";
  
 
 const App = () => {
